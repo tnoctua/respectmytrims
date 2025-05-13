@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "respectmytrims",
+	"version": "${version}",
+	"name": "Respect My Trims",
+	"description": "Makes golden armor trims pacify piglins",
+	"authors": [
+		"N (tnoctua)"
+	],
+	"contact": {
+		"sources": "https://github.com/tnoctua/respectmytrims",
+		"issues": "https://github.com/tnoctua/respectmytrims/issues"
+	},
+	"license": "LGPL-2.1",
+	"icon": "assets/respectmytrims/respectmytrims.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.tnoctua.respectmytrims.RespectMyTrims"
+		]
+	},
+	"mixins": [
+		"respectmytrims.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.5",
+		"java": ">=21"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.github_releases" : "https://github.com/tnoctua/respectmytrims/releases",
+				"modmenu.modrinth" : "https://modrinth.com/mod/respect-my-trims",
+				"modmenu.curseforge" : "https://curseforge.com/minecraft/mc-mods/respect-my-trims"
+			},
+			"update_checker": true
+		}
+	}
+}
