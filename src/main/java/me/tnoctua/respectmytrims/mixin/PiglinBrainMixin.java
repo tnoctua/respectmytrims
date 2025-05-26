@@ -23,7 +23,7 @@ public abstract class PiglinBrainMixin {
         // Gold trims pacify piglins
         DynamicRegistryManager registries = entity.getWorld().getRegistryManager();
         for (ItemStack stack : entity.getArmorItems()) {
-            Optional<ArmorTrim> optionalTrim = ArmorTrim.getTrim(registries, stack);
+            Optional<ArmorTrim> optionalTrim = ArmorTrim.getTrim(registries, stack, true);
             optionalTrim.ifPresent(trim -> {
                 RegistryEntry<ArmorTrimMaterial> materialEntry = trim.getMaterial();
                 materialEntry.getKey().ifPresent(key -> {
