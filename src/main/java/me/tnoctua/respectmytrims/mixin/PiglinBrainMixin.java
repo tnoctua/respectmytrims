@@ -5,8 +5,7 @@ import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
-import net.minecraft.item.equipment.trim.ArmorTrim;
-import net.minecraft.item.equipment.trim.ArmorTrimMaterial;
+import net.minecraft.item.equipment.trim.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,12 +17,13 @@ public abstract class PiglinBrainMixin {
 
     @Inject(method = "isWearingPiglinSafeArmor", at = @At("RETURN"), cancellable = true)
     private static void isWearingPiglinSafeArmor(LivingEntity entity, CallbackInfoReturnable<Boolean> cir) {
-        // Gold trims pacify piglins
+        // Gold trims (and snout patterns) pacify piglins
         for (EquipmentSlot equipmentSlot : AttributeModifierSlot.ARMOR) {
             ArmorTrim components = entity.getEquippedStack(equipmentSlot).getComponents().get(DataComponentTypes.TRIM);
             if (components != null) {
                 RegistryEntry<ArmorTrimMaterial> trim = components.material();
-                if (trim != null && trim.getIdAsString().equals("minecraft:gold")) {
+                RegistryEntry<ArmorTrimPattern> pattern = components.pattern();
+                if ((trim != null && trim.matchesKey(ArmorTrimMaterials.GOLD)) || (pattern != null && pattern.matchesKey(ArmorTrimPatterns.SNOUT))) {
                     cir.setReturnValue(true);
                 }
             }
