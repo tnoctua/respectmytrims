@@ -23,15 +23,15 @@
 		"respectmytrims.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=${loader_version}",
-		"minecraft": "~1.21.5",
-		"java": ">=21"
+		"fabricloader": ">=0.18.0",
+		"minecraft": "~26.1",
+		"java": ">=25"
 	},
 	"custom": {
 		"modmenu": {
 			"links": {
 				"modmenu.github_releases" : "https://github.com/tnoctua/respectmytrims/releases",
-				"modmenu.modrinth" : "https://modrinth.com/mod/respect-my-trims",
+				"modmenu.modrinth" : "https://modrinth.com/project/beDOFui2",
 				"modmenu.curseforge" : "https://curseforge.com/minecraft/mc-mods/respect-my-trims"
 			},
 			"update_checker": true
